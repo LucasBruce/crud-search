@@ -11,15 +11,18 @@ public class ProductService {
 	 @Autowired
 	 private ProductRepository repo;
 	 
-	 public List<Product> listAll(){
+	 public List<product> listAll(String keyword){
+//		if(keyword != null) {
+//			return repo.findAll(keyword);
+//		}
 		 return repo.findAll();
 	 }
 	 
-	 public void save(Product product) {
+	 public void save(product product) {
 		 repo.save(product);
 	 }
 	 
-	 public Product get(Long id) {
+	 public product get(Long id) {
 		 return repo.findById(id).get();
 	 }
 	 

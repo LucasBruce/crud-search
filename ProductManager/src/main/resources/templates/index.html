@@ -7,6 +7,17 @@
 <body>
 <div align="center">
     <h1>Product Manager</h1>
+    <br/>
+    <br/>
+    
+	    <form action="pesquisarproduct" method="post">
+	    <label>Pesquisa por nome:</label>
+	    <input name="nomepesquisa">
+	    <input type="submit" value="Buscar">
+	    </form> 
+	      
+    <br/>
+    <br/>
     <a href="/new">Create New Product</a>
     <br/> <br/>
     <table border="1" cellpadding="10">
@@ -22,13 +33,15 @@
          </thead>
          <tbody>
              <tr th:each="Product : ${listProducts}"> 
-                <td th:field="${Product.id}">Product ID</td>
+                <td th:text="${Product.id}">Product ID</td>
                 <td th:text="${Product.name}">Name</td>
                 <td th:text="${Product.brand}">Brand</td>
                 <td th:text="${Product.madein}">Made in</td>
                 <td th:text="${Product.price}">Price</td>
                 <td> 
-                   <a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+                   <a th:href="@{'/edit/' + ${Product.id}}">Edit</a>
+                   &nbsp;&nbsp;&nbsp;&nbsp;
+                   <a th:href="@{'/delete/' + ${Product.id}}">Delete</a>
                 </td>
              </tr>
          </tbody>

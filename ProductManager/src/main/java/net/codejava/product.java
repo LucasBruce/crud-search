@@ -1,22 +1,31 @@
 package net.codejava;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
-@Table(name="tbl_produto")
-public class Product {
+@Table(name="product")
+public class product {
   
+	@Column
 	private Long id;
+	@Column
 	private String name;
+	@Column
 	private String brand;
+	@Column
 	private String madein;
+	@Column
 	private float price;
 	
-	protected Product() {
+	
+
+	protected product() {
 	}
 	
 	@Id
@@ -52,6 +61,10 @@ public class Product {
 		this.price = price;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", brand=" + brand + ", madein=" + madein + ", price=" + price
+				+ "]";
+	}
 	
 }
